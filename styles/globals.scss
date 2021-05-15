@@ -123,4 +123,10 @@ $font-url: 'https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swa
       width: 100%;
       flex-direction: column;
     }
+    
+  .title {
+    margin: 0;
+    line-height: 1;
+    font-size: 2rem;
+  }
   }

@@ -101,29 +101,29 @@ import rapidHeaders from '../../config/RapidApiHeaders';
             
           <Grid>
             <Grid.Row>
-              <Grid.Column textAlign="center" width={4} verticalAlign="middle">
+              <Grid.Column textAlign="center" computer={4} tablet={4} mobile={16} verticalAlign="middle">
           <Message info >
                 <Header>Total Cases:&nbsp;{worldData['Total Cases_text']}</Header>
                 </Message>
               </Grid.Column>
-              <Grid.Column textAlign="center" width={4} verticalAlign="middle">
+              <Grid.Column textAlign="center" computer={4} tablet={4} mobile={16} verticalAlign="middle">
           <Message info >
                 <Header>Total Active Cases:&nbsp;{worldData['Active Cases_text']}</Header>
                 </Message>
               </Grid.Column>
-              <Grid.Column textAlign="center" width={4} verticalAlign="middle">
+              <Grid.Column textAlign="center" computer={4} tablet={4} mobile={16} verticalAlign="middle">
           <Message info >
                 <Header>Total Deaths:&nbsp;{worldData['Total Deaths_text']}</Header>
                 </Message>
               </Grid.Column>
-              <Grid.Column textAlign="center" width={4} verticalAlign="middle">
+              <Grid.Column textAlign="center" computer={4} tablet={4} mobile={16} verticalAlign="middle">
           <Message info >
                 <Header>Total Recovered:&nbsp;{worldData['Total Recovered_text']}</Header>
                 </Message>
               </Grid.Column>
             </Grid.Row>
-            <Grid.Row columns={3}>
-              <Grid.Column />
+            <Grid.Row columns={3} only="computer tablet">
+              <Grid.Column  />
               <Grid.Column textAlign="center">
               <Item>
 
@@ -152,6 +152,35 @@ import rapidHeaders from '../../config/RapidApiHeaders';
                   </div>
               </Grid.Column>
             </Grid.Row>
+            <Grid.Row columns="1" only="mobile">
+            <Grid.Column textAlign="center">
+              <Item>
+
+<Item.Extra>Last Updated:&nbsp;{lastDate['Last Update']}</Item.Extra>
+</Item>
+</Grid.Column>
+<Grid.Column textAlign="center" >
+<div className="divAlignCenter" style={{ justifyContent: 'center', marginTop: '10px', display: 'flex', flexDirection: 'row-reverse' }}>
+                    <p style={!toggle ? {
+                      display: 'inline', fontSize: 'large', marginLeft: '10px', marginRight: '10px', color: '#317dc8', fontWeight: 'bold',
+                    } : {
+                      display: 'inline', fontSize: 'large', marginLeft: '10px', marginRight: '10px', fontWeight: 'bold', color: '#666',
+                    }}
+                    >
+                      List
+                    </p>
+                    <span style={{ display: 'inline' }}><Radio toggle style={{ backgroundColor: '#317dc8', borderRadius: '50px' }} onClick={this.onToggleClick} /></span>
+                    <p style={!toggle ? {
+                      display: 'inline', fontSize: 'large', marginLeft: '10px', marginRight: '10px', fontWeight: 'bold', color: '#666',
+                    } : {
+                      display: 'inline', fontSize: 'large', marginLeft: '10px', marginRight: '10px', color: '#317dc8', fontWeight: 'bold',
+                    }}
+                    >
+                      Map
+                    </p>
+                  </div>
+              </Grid.Column> 
+            </Grid.Row>
             <Grid.Row columns={1}>
               <Grid.Column verticalAlign="middle">
                 {
@@ -178,7 +207,7 @@ import rapidHeaders from '../../config/RapidApiHeaders';
           }}
         />
         :
-        <div className="ag-theme-alpine" style={{ height: '540px', width: '100%' }}>
+        <div className="ag-theme-alpine" style={{ height: '400px', width: '100%' }}>
                 <AgGridReact
                   enableCellTextSelection
                   columnDefs={columnDefs}
