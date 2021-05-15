@@ -14,7 +14,7 @@ export default class Layout extends React.Component {
         return (
           <div>
             <Head>
-              <title>Help Others</title>
+              <title>Covid-19</title>
               <link rel="icon" href="/log.jpg" />
             </Head>
       

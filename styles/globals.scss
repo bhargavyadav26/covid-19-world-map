@@ -3,16 +3,19 @@ $font-url: 'https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swa
 
 @import "semantic-ui-sass/semantic-ui";
 
+@import 'ag-grid-community/src/styles/ag-grid';
+@import 'ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine';
+@import 'ag-grid-community/src/styles/ag-theme-material/sass/_ag-theme-material-mixin';
 
 * {
   box-sizing: border-box;
 }
 
 .container {
-    min-height: 80vh !important;
+    min-height: 86vh !important;
     padding: 0.5em 1.5rem;
     width: auto;
-    height: 86vh !important;
+    //height: 86vh !important;
     /* display: flex;
     flex-direction: column; */
     /* justify-content: center;
