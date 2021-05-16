@@ -119,10 +119,10 @@ $font-url: 'https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swa
   }
 
   @media (max-width: 600px) {
-    .grid {
-      width: 100%;
-      flex-direction: column;
-    }
+    // .grid {
+    //   width: 100%;
+    //   flex-direction: column;
+    // }
     
   .title {
     margin: 0;
