@@ -21,18 +21,18 @@ import rapidHeaders from '../../config/RapidApiHeaders';
 
         totalRawData: [],
         columnDefs: [
-          { headerName: 'Country', field: 'countries', width: 300 },
+          { headerName: 'Country', field: 'countries', width: 250 },
           {
-            headerName: 'Total Cases', field: 'totalCases', width: 250,
+            headerName: 'Total Cases', field: 'totalCases', width: 200,
           },
           {
-            headerName: 'Active Cases', field: 'activeCases', width: 300,
+            headerName: 'Active Cases', field: 'activeCases', width: 200,
           },
           {
-            headerName: 'Total Deaths', field: 'totalDeaths', width: 320,
+            headerName: 'Total Deaths', field: 'totalDeaths', width: 200,
           },
           {
-            headerName: 'Total Recovered', field: 'totalRecovered', width: 300,
+            headerName: 'Total Recovered', field: 'totalRecovered', width: 200,
           },
           // { name: 'Actions', field: 'actions', cellRenderer: 'iconRenderer' },
         ],
@@ -51,6 +51,11 @@ import rapidHeaders from '../../config/RapidApiHeaders';
     componentDidMount() {
       const { totalData } = this.state;
       const headers = rapidHeaders();
+      if (typeof window !== 'undefined') {
+        this.setState({
+          prevWidth: window.innerWidth,
+        });
+      }
       Axios.get(RapidApi.totalData, { headers }).then(({data}) => {
         const totalRawData = data;
         const tempData = data;
@@ -69,6 +74,19 @@ import rapidHeaders from '../../config/RapidApiHeaders';
         countries.push(['United States', onlyUSA[0]["Total Cases_text"] ? parseFloat(onlyUSA[0]["Total Cases_text"].replace(/,/g,"")) : 0,  onlyUSA[0]["Active Cases_text"] ? parseFloat(onlyUSA[0]["Active Cases_text"].replace(/,/g,"")) : 0 ]);
         this.setState({ totalData: [...totalData, ...countries], data, worldData: onlyWorldData, lastDate, totalRawData });
       })
+    }
+
+    handleOnUpdate = () => {
+      const { prevWidth } = this.state;
+      //   this.setState((prevState) => ({
+      // },
+      // console.log("prevstate ", prevState)));
+  
+      if (prevWidth !== window.innerWidth) {
+        this.setState({
+          prevWidth: window.innerWidth, toggle: false,
+        });
+      }
     }
 
     renderRowData = () => {
@@ -122,7 +140,7 @@ import rapidHeaders from '../../config/RapidApiHeaders';
                 </Message>
               </Grid.Column>
             </Grid.Row>
-            <Grid.Row columns={3} only="computer tablet">
+            <Grid.Row columns={3} only="computer tablet"  onUpdate={this.handleOnUpdate}>
               <Grid.Column  />
               <Grid.Column textAlign="center">
               <Item>
@@ -152,7 +170,7 @@ import rapidHeaders from '../../config/RapidApiHeaders';
                   </div>
               </Grid.Column>
             </Grid.Row>
-            <Grid.Row columns="1" only="mobile">
+            <Grid.Row columns="1" only="mobile" onUpdate={this.handleOnUpdate}>
             <Grid.Column textAlign="center">
               <Item>
 

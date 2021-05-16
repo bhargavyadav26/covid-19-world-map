@@ -7,6 +7,7 @@ export default class Layout extends React.Component {
         this.state = {
         };
       }
+
       
 
     render() {
@@ -15,7 +16,7 @@ export default class Layout extends React.Component {
           <div>
             <Head>
               <title>Covid-19</title>
-              <link rel="icon" href="/log.jpg" />
+              <link rel="icon" href="/pic.png" />
             </Head>
       
             <main className="container">
