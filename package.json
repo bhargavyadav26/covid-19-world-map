@@ -16,7 +16,7 @@
     "ag-grid-react": "^25.2.0",
     "axios": "^0.21.1",
     "luxon": "^1.27.0",
-    "next": "^10.0.0",
+    "next": "^12.1.0",
     "react": "^18.0.0-rc.3",
     "react-dom": "^18.0.0-rc.3",
     "react-google-charts": "^3.0.15",
